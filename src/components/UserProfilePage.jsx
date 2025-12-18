@@ -2,10 +2,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Navbar from './Navbar';
 import { useAuth } from '../Auth/AuthContext';
+import { API_BASE, API_ORIGIN } from '../config/api';
 import defaultAvatar from '../assets/user.png';
-
-const API_BASE = 'http://localhost:4000/api';
-const API_ORIGIN = 'http://localhost:4000';
 
 const UserProfilePage = () => {
   const { user, login } = useAuth() || {};

@@ -13,8 +13,7 @@ import {
   Bar,
 } from 'recharts';
 import { useAuth } from '../Auth/AuthContext';
-
-const API_BASE = 'http://localhost:4000/api';
+import { API_BASE } from '../config/api';
 
 const UserAnalysisPage = () => {
   const { user } = useAuth() || {};

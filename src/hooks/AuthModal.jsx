@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAuth } from '../Auth/AuthContext';
-
-const API_BASE = 'http://localhost:4000/api';
+import { API_BASE } from '../config/api';
 
 const AuthModal = () => {
   const {
@@ -74,7 +73,9 @@ const AuthModal = () => {
       });
 
       if (!res.ok) {
-        alert('Registration failed. Please try again.');
+        const errorData = await res.json().catch(() => ({ message: 'Registration failed' }));
+        console.error('Registration error:', errorData);
+        alert(errorData.message || 'Registration failed. Please try again.');
         return;
       }
 
@@ -82,8 +83,8 @@ const AuthModal = () => {
       login && login(data);
       closeAuth && closeAuth();
     } catch (err) {
-      console.error(err);
-      alert('An error occurred while registering.');
+      console.error('Registration error:', err);
+      alert(`An error occurred while registering: ${err.message || 'Network error. Please check your connection.'}`);
     }
   };
 

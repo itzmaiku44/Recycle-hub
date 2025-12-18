@@ -9,8 +9,7 @@ import {
   Tooltip,
   Legend,
 } from 'recharts';
-
-const API_BASE = 'http://localhost:4000/api';
+import { API_BASE } from '../config/api';
 
 const TradePage = () => {
   const [transactions, setTransactions] = useState([]);

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar';
 import { useAuth } from '../../Auth/AuthContext';
-
-const API_BASE = 'http://localhost:4000/api';
+import { API_BASE } from '../../config/api';
 
 const AdminDashboard = () => {
   const { user } = useAuth() || {};

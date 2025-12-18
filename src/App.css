@@ -11,7 +11,7 @@ html, body {
 }
 
 .app-schedule-bg {
-  background-image: url('/src/assets/Collection Schedule.png');
+  background-image: url('/Collection Schedule.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -450,7 +450,7 @@ html, body {
   margin: 0;
   padding: 0 8%;
   text-align: center;
-  background-image: url('./assets/Collection Schedule.png');
+  background-image: url('/Collection Schedule.png');
   background-size: cover;
   background-repeat: no-repeat;
   min-height: calc(100vh - 80px); /* account for navbar height on 1080p */

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import { useAuth } from '../Auth/AuthContext';
+import { API_BASE } from '../config/api';
 import './RewardProgram.css';
-
-const API_BASE = 'http://localhost:4000/api';
 
 const RewardsPage = () => {
   const { user, login } = useAuth() || {};

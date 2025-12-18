@@ -1,9 +1,8 @@
 // src/components/SchedulePage.jsx
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
+import { API_BASE } from '../config/api';
 import './Schedule.css';
-
-const API_BASE = 'http://localhost:4000/api';
 
 const SchedulePage = () => {
   const [timeLeft, setTimeLeft] = useState(0);
