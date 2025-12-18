@@ -1,0 +1,559 @@
+/* src/App.css */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+.app-schedule-bg {
+  background-image: url('/src/assets/Collection Schedule.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* --- General Button Style --- */
+.primary-button {
+  background-color: var(--primary-green);
+  color: var(--white);
+  padding: 12px 30px;
+  border: none;
+  border-radius: var(--border-radius-base);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.primary-button:hover {
+  background-color: #438f30; /*Darker green on hover*/
+}
+
+/*Navbar Styles*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-green);
+}
+
+.navbar-logo span {
+  margin-left: 10px;
+  color: var(--text-dark);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 0;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--primary-green);
+}
+
+/*Hero Section Styles*/
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 8% 60px 8%;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 40px;
+  max-width: 60%;
+}
+
+.hero-image-container {
+  width: 495px;
+  height: 362px;
+}
+
+.hero-image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*Features Section Styles*/
+.features-section {
+  padding: 40px 8% 80px 8%;
+  margin: 0 15% 0 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  text-align: center;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature-icon {
+  font-size: 2.5rem; 
+  color: var(--primary-green);
+  margin-bottom: 5px;
+}
+
+.feature-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/*User Profile Page Styles*/
+
+.profile-container {
+  padding: 0 8%;
+  max-width: 1200px;
+  margin: 0 auto; 
+}
+
+.profile-header-banner {
+  background-color: var(--primary-green);
+  color: var(--white);
+  text-align: center;
+  padding: 15px 0;
+  margin-top: -20px; 
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.profile-details-section {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.profile-avatar-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--primary-green);
+  margin: 0 auto 20px;
+  background-color: #f0f0f0; /* Light background for the circle */
+}
+
+.profile-welcome-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/*Main Content Grid*/
+.profile-main-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.user-info-panel {
+  flex: 1; 
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius-base);
+  padding: 20px;
+  min-width: 350px;
+}
+
+.transaction-accounts-panel {
+  flex: 2; 
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.info-group-title, .panel-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.info-item, .transaction-item, .account-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--text-light);
+  min-width: 100px;
+}
+
+.info-value {
+  text-align: right;
+}
+
+.info-group {
+  margin-bottom: 20px;
+}
+
+/*Specific styling for the Passkey/Password rows*/
+.privacy-text {
+  color: var(--text-dark);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/*Transaction History and Connected Accounts*/
+.transaction-panel, .accounts-panel {
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius-base);
+  padding: 20px;
+}
+
+.transaction-item, .account-item {
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+}
+.transaction-item:last-of-type, .account-item:last-of-type {
+  border-bottom: none;
+}
+
+.transaction-detail {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.transaction-date {
+  font-style: italic;
+  color: var(--text-light);
+}
+
+.panel-button {
+  background-color: var(--primary-green);
+  color: var(--white);
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-transform: uppercase;
+}
+
+.panel-button.more {
+  background-color: #d1d1d1;
+  color: var(--text-dark);
+}
+
+.panel-button.more:hover {
+  background-color: #bbb;
+}
+
+.panel-button.link {
+  background-color: #4969b8; 
+  float: right;
+}
+
+.panel-button.link:hover {
+  background-color: #395493;
+}
+
+.panel-button.edit {
+  float: left;
+}
+
+/* Navbar user dropdown */
+.nav-user {
+  position: relative;
+}
+
+.nav-user-button {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-user-menu {
+  position: absolute;
+  right: 0;
+  top: 120%;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  min-width: 140px;
+  z-index: 100;
+  padding: 6px 0;
+}
+
+.nav-user-menu-item {
+  display: block;
+  width: 100%;
+  padding: 8px 14px;
+  text-align: left;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text-dark);
+}
+
+.nav-user-menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* --- Auth Modal --- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  padding: 24px 28px 20px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.modal-tab {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 0;
+  margin-right: 16px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.modal-tab.active {
+  color: var(--text-dark);
+  border-bottom-color: var(--primary-green);
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.modal-form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 0.9rem;
+  gap: 4px;
+}
+
+.modal-form input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d4d4d4;
+  font-size: 0.95rem;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.modal-footer {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--primary-green);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* --- Schedule Page (Countdown Design) Styles --- */
+
+.schedule-v2-container {
+  margin: 0;
+  padding: 0 8%;
+  text-align: center;
+  background-image: url('./assets/Collection Schedule.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 80px); /* account for navbar height on 1080p */
+  max-height: calc(100vh - 80px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.schedule-v2-title {
+  font-size: 61px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.schedule-v2-title span {
+  color: var(--primary-green);
+}
+
+/* --- Countdown Timer Styles --- */
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Align the text/seconds to the center */
+  gap: 88px;
+  font-size: 50px;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-number {
+  font-size: 124px; /* Large size for the numbers */
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-dark);
+}
+
+.countdown-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-top: 10px;
+}
+
+.countdown-seconds {
+  font-size: 53px;
+  font-weight: 600;
+  color: var(--primary-green);
+  margin-left: 10px;
+  margin-top: 30px;
+  align-self: flex-start; /* Aligns with the number text baseline */
+}
+
+/* --- Location List and Illustration Styles --- */
+.location-and-illustration {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Align the illustrations to the bottom */
+  position: relative;
+  margin-top: 30px;
+}
+
+.illustration-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* Keep illustrations behind text */
+  /* This is where you would place the SVG background */
+}
+
+.location-list {
+  text-align: left;
+  z-index: 10; /* Bring text above illustrations */
+  margin: 0 auto; /* center the block horizontally */
+  padding-bottom: 20px;
+}
+
+.location-item {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.location-item.pickup {
+  color: var(--primary-green);
+}
+
+.location-item.next {
+  color: #3f9059; /* A slightly darker green for differentiation */
+}
+
+.important-note {
+  z-index: 10;
+  position: static;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}

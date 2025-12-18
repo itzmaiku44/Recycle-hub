@@ -1,0 +1,127 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum CategoryType {
+  PLASTIC
+  PAPER
+  GLASS
+  COPPER
+  METAL
+}
+
+enum RewardStatus {
+  PENDING
+  PAID
+}
+
+enum WalletProvider {
+  GCASH
+  MAYA
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  firstName    String
+  lastName     String
+  phone        String?   @db.VarChar(32)
+  birthdate    DateTime?
+  passwordHash String
+
+  role         Role      @default(USER)
+  points       Decimal   @default(0) @db.Decimal(10, 2)
+  avatarPath   String?
+  isActive     Boolean   @default(true)
+
+  transactions RecycleTransaction[]
+  redemptions  Redemption[]
+  payoutMethods PayoutMethod[]
+  schedules    CollectionSchedule[] @relation("ScheduleCreator")
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model CollectionSchedule {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  location    String
+  startAt     DateTime
+  endAt       DateTime?
+
+  createdById Int?
+  createdBy   User?    @relation("ScheduleCreator", fields: [createdById], references: [id])
+
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model RecycleTransaction {
+  id               Int          @id @default(autoincrement())
+  userId           Int
+  user             User         @relation(fields: [userId], references: [id])
+
+  category         CategoryType
+  weightKg         Decimal      @db.Decimal(10, 2)
+  pointsBase       Decimal      @db.Decimal(10, 2)
+  pointsMultiplier Decimal      @db.Decimal(4, 2)
+  pointsTotal      Decimal      @db.Decimal(10, 2)
+
+  createdAt        DateTime     @default(now())
+}
+
+model Reward {
+  id         Int      @id @default(autoincrement())
+  title      String
+  amountCash Decimal  @db.Decimal(10, 2)
+  pointsCost Decimal  @db.Decimal(10, 2)
+  isActive   Boolean  @default(true)
+
+  redemptions Redemption[]
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Redemption {
+  id             Int           @id @default(autoincrement())
+  userId         Int
+  user           User          @relation(fields: [userId], references: [id])
+
+  rewardId       Int
+  reward         Reward        @relation(fields: [rewardId], references: [id])
+
+  status         RewardStatus  @default(PENDING)
+  payoutMethodId Int?
+  payoutMethod   PayoutMethod? @relation(fields: [payoutMethodId], references: [id])
+
+  createdAt      DateTime      @default(now())
+  processedAt    DateTime?
+}
+
+model PayoutMethod {
+  id            Int            @id @default(autoincrement())
+  userId        Int
+  user          User           @relation(fields: [userId], references: [id])
+
+  provider      WalletProvider
+  accountNumber String         @db.VarChar(32)
+  isDefault     Boolean        @default(false)
+
+  redemptions   Redemption[]
+
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
