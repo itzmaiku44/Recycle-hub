@@ -23,6 +23,12 @@ const AboutPage = () => {
             bringing together routes, maps, and user insights in one friendly
             interface.
           </p>
+          </p>
+          <p style={{ fontSize: '1.05rem', lineHeight: 1.7 }}>
+            This project is created by student of CIS2102 - WEB DEVELOPMENT 2 - Group6 S.Y. 2025.
+            Lead Developer: Michael James Catubig
+            Frontend Developer: Adam Werner T. Villa, Johndear M. Halili
+          </p>
         </section>
       </main>
     </>
