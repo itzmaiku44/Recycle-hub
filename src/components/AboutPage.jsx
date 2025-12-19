@@ -26,8 +26,8 @@ const AboutPage = () => {
           <br />
           <p style={{ fontSize: '1.05rem', lineHeight: 1.7 }}>
             This project is created by student of CIS2102 - WEB DEVELOPMENT 2 - Group6 S.Y. 2025.<br />
-            Lead Developer: Michael James Catubig<br />
-            Frontend Developer: <br />Adam Werner T. Villa <br />Johndear M. Halili
+            <strong>Lead Developer:</strong> Michael James Catubig<br />
+            <strong>Frontend Developer:</strong> <br />Adam Werner T. Villa <br />Johndear M. Halili
           </p>
         </section>
       </main>
